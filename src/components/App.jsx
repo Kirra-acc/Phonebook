@@ -1,6 +1,6 @@
-import { Input } from './Input/Input.jsx';
-import { ContactList } from './ContactList/ContactList.jsx';
-import { Filter } from './Filter/Filter.jsx';
+import { Input } from '../pages/Contacts/Input/Input.jsx';
+import { ContactList } from '../pages/Contacts/ContactList/ContactList.jsx';
+import { Filter } from '../pages/Contacts/Filter/Filter.jsx';
 
 export const App = () => {
   return (
