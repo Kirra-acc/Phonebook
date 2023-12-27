@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <header>
       <Navbar />
-      {user && <h2>{user}</h2>}
+      {user && <h2>Hi {user}!</h2>}
     </header>
   );
 };

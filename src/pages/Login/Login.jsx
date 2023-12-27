@@ -1,9 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { loginThunk } from 'store/auth/operations';
 
 export const Login = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       email: 'o',
@@ -13,7 +16,15 @@ export const Login = () => {
   const dispatch = useDispatch();
   const submit = data => {
     console.log(data);
-    dispatch(loginThunk(data));
+    dispatch(loginThunk(data))
+      .unwrap()
+      .then(res => {
+        navigate('/contacts');
+        toast.success(`Welcome ${res.user.name}!`);
+      })
+      .catch(() => {
+        alert('Error');
+      });
   };
   return (
     <div>
