@@ -1,8 +1,8 @@
 import s from './Input.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 // import { addContact } from '../../store/phonebookSlice.js';
-import { addContactsThunk } from 'store/operations';
-import { selectContacts } from 'store/selector';
+import { addContactsThunk } from 'store/contacts/operations';
+import { selectContacts } from 'store/contacts/selector';
 
 export const Input = () => {
   const dispatch = useDispatch();

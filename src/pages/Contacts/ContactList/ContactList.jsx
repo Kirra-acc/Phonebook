@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { ListItem } from '../ListItem/ListItem.jsx';
 import s from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContasctsThunk } from 'store/operations.js';
-import { selectContacts, selectError, selectFilter, selectLoading } from 'store/selector.js';
+import { fetchContasctsThunk } from 'store/contacts/operations.js';
+import { selectContacts, selectError, selectFilter, selectLoading } from 'store/contacts/selector.js';
 
 export const ContactList = ({ children }) => {
   const contacts = useSelector(selectContacts);
