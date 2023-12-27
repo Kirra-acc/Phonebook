@@ -14,11 +14,25 @@ export const registerThunk = createAsyncThunk(
   }
 );
 
-export const loginThunk = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
+export const loginThunk = createAsyncThunk(
+  'auth/login',
+  async (credentials, thunkAPI) => {
     try {
-        const response = await api.post('users/login', credentials);
-        return response.data
+      const response = await api.post('users/login', credentials);
+      return response.data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
-})
+  }
+);
+
+export const logoutThunk = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      await api.post('users/logout');
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
