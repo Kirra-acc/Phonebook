@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { loginThunk } from 'store/auth/operations';
+import s from './Login.module.css'
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export const Login = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit(submit)}>
+      <form className={s.loginForm} onSubmit={handleSubmit(submit)}>
         <label>
           <span>Email</span>
           <input {...register('email')} type="text" />

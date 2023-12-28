@@ -25,7 +25,9 @@ h2 {
   margin: 30px;
   font-size: 60px;
 }
-
+a{
+  color: white;
+}
 .active{
   color: #03e9f4
 }

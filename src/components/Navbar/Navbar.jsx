@@ -1,14 +1,15 @@
+import { UserMenu } from 'components/UserMenu/UserMenu';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { logoutThunk } from 'store/auth/operations';
+import s from './Navbar.module.css';
 import { selectIsLoggedIn } from 'store/auth/selectors';
 
 export const Navbar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const dispatch = useDispatch();
+
   return (
-    <div>
+    <div className={s.navbarWrapper}>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/contacts">Contacts</NavLink>
       {!isLoggedIn && (
@@ -20,14 +21,7 @@ export const Navbar = () => {
 
       {isLoggedIn && (
         <>
-          |{' '}
-          <button
-            onClick={() => {
-              dispatch(logoutThunk());
-            }}
-          >
-            Exit
-          </button>
+          | <UserMenu />
         </>
       )}
     </div>
