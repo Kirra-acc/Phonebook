@@ -9,6 +9,8 @@ import { Login } from 'pages/Login/Login.jsx';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshThunk } from 'store/auth/operations.js';
+import { PrivateRoute } from 'routesConfig/PrivateRoute.jsx';
+import { PublicRoute } from 'routesConfig/PublicRoute.jsx';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
-  
+
   return (
     <div
       style={{
@@ -38,15 +40,31 @@ export const App = () => {
               <h1>Phonebook</h1>
               <Input />
 
-              <h2>Contacts</h2>
-              <ContactList>
-                <Filter />
-              </ContactList>
+              <PrivateRoute>
+                <h2>Contacts</h2>
+                <ContactList>
+                  <Filter />
+                </ContactList>
+              </PrivateRoute>
             </>
           }
         />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

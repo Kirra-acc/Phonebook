@@ -9,8 +9,8 @@ export const Login = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      email: 'o',
-      password: 'dd',
+      email: 'fdgnfdgj@gmail.com',
+      password: '12345678',
     },
   });
   const dispatch = useDispatch();
