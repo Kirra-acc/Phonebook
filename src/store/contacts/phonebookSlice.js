@@ -4,6 +4,7 @@ import {
   deleteContactsThunk,
   fetchContasctsThunk,
 } from '../contacts/operations';
+import { logoutThunk } from 'store/auth/operations';
 
 const initialState = {
   contacts: {
@@ -13,7 +14,6 @@ const initialState = {
   },
   filter: '',
 };
-
 
 export const phonebookSlice = createSlice({
   name: 'phonebook',
@@ -29,8 +29,13 @@ export const phonebookSlice = createSlice({
         state.contacts.items = payload;
         state.contacts.loading = false;
       })
+      .addCase(logoutThunk.fulfilled, state => {
+        state.contacts = [];
+      })
       .addCase(deleteContactsThunk.fulfilled, (state, { payload }) => {
-        state.contacts.items = state.contacts.items.filter(item => item.id !== payload.id);
+        state.contacts.items = state.contacts.items.filter(
+          item => item.id !== payload.id
+        );
       })
       .addCase(addContactsThunk.fulfilled, (state, { payload }) => {
         state.contacts.items.push(payload);
