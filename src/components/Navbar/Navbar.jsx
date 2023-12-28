@@ -12,7 +12,7 @@ export const Navbar = () => {
     <div className={s.navbarWrapper}>
       <NavLink to="/">Home</NavLink>
       {/* <NavLink to="/contacts">Contacts</NavLink> */}
-      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
+      {!isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
       {!isLoggedIn ? (
         <>
           <NavLink to="/register">SignUp</NavLink>
