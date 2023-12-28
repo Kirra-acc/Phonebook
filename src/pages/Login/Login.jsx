@@ -23,7 +23,7 @@ export const Login = () => {
         toast.success(`Welcome ${res.user.name}!`);
       })
       .catch(() => {
-        toast.error('Something went wrong...')
+        toast.error('Something went wrong...');
       });
   };
   return (
