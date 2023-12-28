@@ -1,13 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { loginThunk } from 'store/auth/operations';
 import s from './Login.module.css';
 
 export const Login = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       email: 'fdgnfdgj@gmail.com',
@@ -20,7 +20,7 @@ export const Login = () => {
     dispatch(loginThunk(data))
       .unwrap()
       .then(res => {
-        navigate('/contacts');
+        // navigate('/contacts');
         toast.success(`Welcome ${res.user.name}!`);
       })
       .catch(() => {
