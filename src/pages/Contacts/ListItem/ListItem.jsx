@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux';
 // import { deleteContact } from '../../store/phonebookSlice.js';
 import { deleteContactsThunk } from 'store/contacts/operations';
 
-export const ListItem = ({ name, phone, id }) => {
+export const ListItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
 
   return (
     <li className={s.contactItem}>
       <div>
         <span>{name}: </span>
-        <span>{phone}</span>
+        <span>{number}</span>
       </div>
 
       <button

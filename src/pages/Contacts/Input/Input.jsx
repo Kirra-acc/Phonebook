@@ -11,13 +11,13 @@ export const Input = () => {
   const createContact = event => {
     event.preventDefault();
     const name = event.target.elements.name.value;
-    const phone = event.target.elements.phone.value;
+    const number = event.target.elements.number.value;
     if (contacts.some(contact => contact.name === name)) {
       alert(`Contact with the name ${name} already exists!`);
       return;
     }
     try {
-      dispatch(addContactsThunk({ name, phone }));
+      dispatch(addContactsThunk({ name, number }));
     } finally {
       event.target.reset();
     }
@@ -41,7 +41,7 @@ export const Input = () => {
           <input
             className={s.formInput}
             type="tel"
-            name="phone"
+            name="number"
             placeholder="Phone number"
             required
           />
