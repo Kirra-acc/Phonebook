@@ -7,6 +7,7 @@ import { persistor, store } from 'store/store';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { PersistGate } from 'redux-persist/integration/react';
+import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter basename="goit-react-hw-08-phonebook">
