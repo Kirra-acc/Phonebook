@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { loginThunk } from 'store/auth/operations';
-import s from './Login.module.css'
+import s from './Login.module.css';
 
 export const Login = () => {
   const navigate = useNavigate();

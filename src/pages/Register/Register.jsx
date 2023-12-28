@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from 'store/auth/operations';
+import s from './Register.module.css';
 
 export const Register = () => {
   const { register, handleSubmit } = useForm();
@@ -12,7 +13,7 @@ export const Register = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit(submit)}>
+      <form className={s.registerForm} onSubmit={handleSubmit(submit)}>
         <label>
           <span>Name</span>
           <input {...register('name')} type="text" />

@@ -1,6 +1,6 @@
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css';
 import { selectIsLoggedIn } from 'store/auth/selectors';

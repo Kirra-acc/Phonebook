@@ -13,6 +13,7 @@ import { PrivateRoute } from 'routesConfig/PrivateRoute.jsx';
 import { PublicRoute } from 'routesConfig/PublicRoute.jsx';
 import { selectIsRefresh } from '../store/auth/selectors.js';
 import { Loader } from './Loader.jsx';
+import { Home } from 'pages/Home/Home.jsx';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ export const App = () => {
     >
       <Header />
       <Routes>
-        <Route path="/" element={<h1>Homepage</h1>} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/contacts"
           element={
