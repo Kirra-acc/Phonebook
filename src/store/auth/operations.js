@@ -52,7 +52,7 @@ export const refreshThunk = createAsyncThunk(
     }
 
     try {
-      const response = api.get('users/current');
+      const response = await api.get('users/current');
       console.log(response.data);
       return response.data;
     } catch (error) {
