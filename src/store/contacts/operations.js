@@ -20,9 +20,11 @@ export const fetchContasctsThunk = createAsyncThunk(
   'fetchContacts',
   async (_, thunkAPI) => {
     try {
+      console.log(1234);
       const { data } = await api.get('contacts');
       return data;
     } catch (error) {
+      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

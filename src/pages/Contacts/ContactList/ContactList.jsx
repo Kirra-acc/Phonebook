@@ -8,7 +8,7 @@ import { selectContacts, selectError, selectFilter, selectLoading } from 'store/
 export const ContactList = ({ children }) => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
-  const filteredContacts = contacts.filter(contact =>
+  const filteredContacts = contacts?.filter(contact =>
     contact.name.toLowerCase().includes(filter?.toLowerCase() || '')
   );
   const loading = useSelector(selectLoading);
@@ -16,17 +16,18 @@ export const ContactList = ({ children }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(123);
     dispatch(fetchContasctsThunk());
   }, [dispatch]);
 
   return (
     <>
       {children}
-      {filteredContacts.length === 0 ? (
+      {filteredContacts?.length === 0 ? (
         <p className={s.errorMessage}>No contacts match your search</p>
       ) : (
         <ul className={s.listOfContacts}>
-          {filteredContacts.map(({ id, name, number }) => (
+          {filteredContacts?.map(({ id, name, number }) => (
             <ListItem key={id} id={id} name={name} number={number} />
           ))}
         </ul>

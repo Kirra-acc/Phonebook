@@ -17,12 +17,10 @@ import { Home } from 'pages/Home/Home.jsx';
 
 export const App = () => {
   const dispatch = useDispatch();
-
+  const isRefresh = useSelector(selectIsRefresh);
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
-
-  const isRefresh = useSelector(selectIsRefresh);
 
   return isRefresh ? (
     <Loader />

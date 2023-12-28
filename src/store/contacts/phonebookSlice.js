@@ -26,11 +26,11 @@ export const phonebookSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchContasctsThunk.fulfilled, (state, { payload }) => {
-        state.contacts.items = payload;
+        // state.contacts.items = payload;
         state.contacts.loading = false;
       })
       .addCase(logoutThunk.fulfilled, state => {
-        state.contacts = [];
+        state.contacts.items = [];
       })
       .addCase(deleteContactsThunk.fulfilled, (state, { payload }) => {
         state.contacts.items = state.contacts.items.filter(
