@@ -6,8 +6,17 @@ import { Header } from './Header/Header.jsx';
 import { NotFound } from 'pages/NotFound/NotFound.jsx';
 import { Register } from 'pages/Register/Register.jsx';
 import { Login } from 'pages/Login/Login.jsx';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshThunk } from 'store/auth/operations.js';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
+  
   return (
     <div
       style={{
